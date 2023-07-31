@@ -1,0 +1,51 @@
+[versions]
+kotlin_plugin = "1.8.20"
+coroutines = "1.7.3"
+
+android_plugin = "8.0.2"
+android_core = "1.10.1"
+appcompat = "1.6.1"
+material = "1.9.0"
+constraint = "2.1.4"
+lifecycle = "2.6.1"
+fragment = "1.5.7"
+navigation = "2.6.0"
+
+junit = "4.13.2"
+androidx_junit = "1.1.5"
+espresso = "3.5.1"
+
+[libraries]
+# coroutines
+coroutines_android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+coroutines_core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+
+## navigation
+navigation_fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+navigation_ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
+navigation_features_fragment = { module = "androidx.navigation:navigation-dynamic-features-fragment", version.ref = "navigation" }
+
+# lifecycle
+lifecycle_runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+lifecycle_viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+
+android_core = { module = "androidx.core:core-ktx", version.ref = "android_core" }
+appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+constraint = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraint" }
+fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment" }
+
+junit = { module = "junit:junit", version.ref = "junit" }
+androidx_junit = { module = "androidx.test.ext:junit", version.ref = "androidx_junit" }
+espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+
+[bundles]
+coroutines = ["coroutines.core", "coroutines.android"]
+navigation = ["navigation.fragment", "navigation.ui", "navigation.features.fragment"]
+lifecycle = ["lifecycle.runtime", "lifecycle.viewmodel"]
+android_test = ["androidx.junit", "espresso"]
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin.plugin" }
+android_application = { id = "com.android.application", version.ref = "android.plugin" }
+android_library = { id = "com.android.library", version.ref = "android.plugin" }
