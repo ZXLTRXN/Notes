@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="Base.V26.Theme.Notes" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:buttonStyle">@style/Widget.Notes.Button</item>
+
+    </style>
+
+    <style name="Base.Theme.Notes" parent="Base.V26.Theme.Notes"/>
+
+    <style name="Theme.Notes" parent="Base.Theme.Notes" />
+</resources>
