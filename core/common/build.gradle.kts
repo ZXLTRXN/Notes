@@ -1,18 +1,14 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
 }
 
 android {
-    namespace = "com.example.notes"
+    namespace = "com.example.core.common"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.notes"
         minSdk = 26
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -20,7 +16,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -37,14 +36,6 @@ dependencies {
     implementation(libs.android.core)
     implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(libs.constraint)
-    implementation(libs.fragment)
-
-    implementation(libs.bundles.lifecycle)
-    implementation(libs.bundles.coroutines)
-    implementation(libs.bundles.navigation)
-
-    implementation(project(":core:ui"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.bundles.android.test)
