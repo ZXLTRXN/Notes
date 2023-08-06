@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<!--this file is only for test
-it should be in feature module and contains actions necessary for every feature -->
-<resources>
-    <item name="action_to_testFragment" type="id"/>
-</resources>
