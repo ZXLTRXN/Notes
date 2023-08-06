@@ -44,7 +44,9 @@ dependencies {
     implementation(libs.bundles.coroutines)
     implementation(libs.bundles.navigation)
 
+    implementation(project(":core:common"))
     implementation(project(":core:ui"))
+    implementation(project(":feature:navigation"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.bundles.android.test)
