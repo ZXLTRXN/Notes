@@ -1,4 +1,4 @@
-package com.example.feature.navigation
+package com.example.core.navigation
 
 import org.junit.Test
 

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.feature.navigation"
+    namespace = "com.example.core.navigation"
     compileSdk = 33
 
     defaultConfig {

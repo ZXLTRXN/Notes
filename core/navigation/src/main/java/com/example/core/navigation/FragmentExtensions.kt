@@ -1,4 +1,4 @@
-package com.example.feature.navigation
+package com.example.core.navigation
 
 import android.os.Build
 import android.os.Bundle
