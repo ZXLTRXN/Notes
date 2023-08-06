@@ -20,7 +20,7 @@ class Test1Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<Button>(R.id.navigate_button).setOnClickListener {
-            navigate(R.id.action_to_testFragment,)
+            navigate(R.id.action_to_testFragment, TestData(12345))
         }
     }
 }

@@ -1,5 +1,6 @@
 [versions]
 kotlin_plugin = "1.8.20"
+parcelize_plugin = "1.8.20"
 coroutines = "1.7.3"
 
 android_plugin = "8.0.2"
@@ -49,3 +50,4 @@ android_test = ["androidx.junit", "espresso"]
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin.plugin" }
 android_application = { id = "com.android.application", version.ref = "android.plugin" }
 android_library = { id = "com.android.library", version.ref = "android.plugin" }
+parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "parcelize_plugin" }
