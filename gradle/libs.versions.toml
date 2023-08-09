@@ -47,5 +47,6 @@ android_test = ["androidx.junit", "espresso"]
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin.plugin" }
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin.plugin" }
 android_application = { id = "com.android.application", version.ref = "android.plugin" }
 android_library = { id = "com.android.library", version.ref = "android.plugin" }
