@@ -9,6 +9,8 @@ import dagger.Binds
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
+import javax.inject.Qualifier
 
 @Component(modules = [AppModule::class, AnalyticsModule::class])
 interface AppComponent {
@@ -22,11 +24,32 @@ interface AppComponent {
 @Module
 class AppModule {
     @Provides
-    fun provideTestDep(): TestDep {
-        return TestDep("a", 1)
+    fun provideTestDep(
+        @AQualifier
+        a: String,
+        @Named("b")
+        b: String,
+        c: String
+    ): TestDep {
+        return TestDep(a, b, c)
     }
 
+    @Provides
+    @AQualifier
+    fun provideAString(): String = "a"
+
+    @Provides
+    @Named("b")
+    fun provideBString(): String = "b"
+
+    @Provides
+    fun provideDefaultString(): String = "c"
+
 }
+
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME) // время жизни, runtime достаточно
+annotation class AQualifier
 
 @Module(includes = [AnalyticsBindModule::class])
 class AnalyticsModule()
