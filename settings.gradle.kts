@@ -16,3 +16,4 @@ rootProject.name = "Notes"
 include(":app")
 include(":core:ui")
 include(":core:common")
+include(":core:navigation")
