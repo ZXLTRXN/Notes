@@ -11,10 +11,12 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Named
 import javax.inject.Qualifier
+import javax.inject.Scope
 
 @Component(modules = [AppModule::class, AnalyticsModule::class],
     dependencies = [AppDeps::class] // для 2 способа
 )
+@AppScope
 interface AppComponent {
 
     val testDep: TestDep // для provides
@@ -36,6 +38,16 @@ interface AppComponent {
         fun build(): AppComponent
     }
 }
+
+@Scope
+annotation class AppScope // кастомный скоуп, контролирующий время жизни
+
+// Скоупами (любыми) нужно метить лишь те места, которые хранят состояния,
+// тем, кто состояние не хранят незачем висеть в памяти.
+// Для объектов без состояния(или немутабельных) можно сделать оптимизацию без скоупа, используя @Reusable
+// она позволяет какое-то время хранить зависимости в памяти,
+// чтобы отдавать одну и ту же, но это НЕ гарантируется строго, имей в виду.
+
 
 @Module
 class AppModule {
