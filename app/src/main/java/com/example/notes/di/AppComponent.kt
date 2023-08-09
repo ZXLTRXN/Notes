@@ -12,13 +12,29 @@ import dagger.Provides
 import javax.inject.Named
 import javax.inject.Qualifier
 
-@Component(modules = [AppModule::class, AnalyticsModule::class])
+@Component(modules = [AppModule::class, AnalyticsModule::class],
+    dependencies = [AppDeps::class] // для 2 способа
+)
 interface AppComponent {
 
     val testDep: TestDep // для provides
 
     fun inject(activity: MainActivity)
     fun inject(fragment: TestFragment)
+
+    @Component.Builder
+    interface Builder {
+        // 1
+//        @BindsInstance // позволяет поместить в граф что-нибудь извне
+//        fun context(context: Context): Builder
+        //
+
+        // 2 // другой способ добавления внешних зависимостей
+        fun appDeps(deps: AppDeps): Builder
+        //
+
+        fun build(): AppComponent
+    }
 }
 
 @Module
