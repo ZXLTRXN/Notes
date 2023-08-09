@@ -1,6 +1,7 @@
 package com.example.notes.di
 
 import com.example.notes.MainActivity
+import com.example.notes.TestFragment
 import com.example.notes.di.testing.Analytics
 import com.example.notes.di.testing.AnalyticsImpl
 import com.example.notes.di.testing.TestDep
@@ -12,9 +13,10 @@ import dagger.Provides
 @Component(modules = [AppModule::class, AnalyticsModule::class])
 interface AppComponent {
 
-    val testDep: TestDep
+    val testDep: TestDep // для provides
 
     fun inject(activity: MainActivity)
+    fun inject(fragment: TestFragment)
 }
 
 @Module

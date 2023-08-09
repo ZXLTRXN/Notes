@@ -1,15 +1,28 @@
 package com.example.notes
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.example.notes.di.appComponent
+import com.example.notes.di.testing.TestViewModel
+import com.example.notes.di.testing.TestViewModelFactory
+import javax.inject.Inject
 
 class TestFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    @Inject lateinit var factory: TestViewModelFactory.Factory
+
+    private val viewModel: TestViewModel by viewModels {
+        factory.create(123L)
+    }
+
+    override fun onAttach(context: Context) {
+        context.appComponent.inject(this) // именно тут
+        super.onAttach(context)
     }
 
     override fun onCreateView(
@@ -17,5 +30,10 @@ class TestFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_test, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.test()
     }
 }
