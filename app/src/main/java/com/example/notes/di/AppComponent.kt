@@ -1,5 +1,6 @@
 package com.example.notes.di
 
+import android.content.Context
 import com.example.notes.MainActivity
 import com.example.notes.TestFragment
 import com.example.notes.di.testing.TestDep
@@ -23,14 +24,13 @@ annotation class AppScope // кастомный скоуп, контролиру
     dependencies = [AppDeps::class] // для 2 способа
 )
 @AppScope
-interface AppComponent {
+interface AppComponent: FeatureDeps {
+    override fun context(): Context
 
     val testDep: TestDep // указание тут нужно лишь для тех, что используют provides
 
     fun inject(activity: MainActivity)
     fun inject(fragment: TestFragment)
-
-    fun featureComponent(): FeatureComponent.Builder // из этого метода мы можем где нам нужно получать этот feature component
 
     @Component.Builder
     interface Builder {
@@ -47,7 +47,7 @@ interface AppComponent {
     }
 }
 
-@Module(includes = [TestStringsModule::class], subcomponents = [FeatureComponent::class])
+@Module(includes = [TestStringsModule::class])
 class AppModule {
     @Provides
     fun provideTestDep(
