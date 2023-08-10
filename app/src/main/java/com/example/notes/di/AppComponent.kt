@@ -19,10 +19,12 @@ import javax.inject.Scope
 @AppScope
 interface AppComponent {
 
-    val testDep: TestDep // для provides
+    val testDep: TestDep // указание тут нужно лишь для тех, что используют provides
 
     fun inject(activity: MainActivity)
     fun inject(fragment: TestFragment)
+
+    fun featureComponent(): FeatureComponent.Builder // из этого метода мы можем где нам нужно получать этот feature component
 
     @Component.Builder
     interface Builder {
@@ -49,7 +51,7 @@ annotation class AppScope // кастомный скоуп, контролиру
 // чтобы отдавать одну и ту же, но это НЕ гарантируется строго, имей в виду.
 
 
-@Module
+@Module(subcomponents = [FeatureComponent::class])
 class AppModule {
     @Provides
     fun provideTestDep(
