@@ -1,12 +1,19 @@
 package com.example.notes.di
 
 import android.content.Context
+import androidx.lifecycle.ViewModel
 import com.example.notes.MainActivity
 import com.example.notes.TestFragment
+import com.example.notes.di.testing.DetailsViewModel
+import com.example.notes.di.testing.ListViewModel
+import com.example.notes.di.testing.MainViewModel
 import com.example.notes.di.testing.TestDep
+import com.example.notes.di.testing.ViewModelKey
+import dagger.Binds
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import dagger.multibindings.IntoMap
 import javax.inject.Named
 import javax.inject.Scope
 
@@ -47,7 +54,7 @@ interface AppComponent: FeatureDeps {
     }
 }
 
-@Module(includes = [TestStringsModule::class])
+@Module(includes = [TestStringsModule::class, AppBindsModule::class])
 class AppModule {
     @Provides
     fun provideTestDep(
@@ -59,4 +66,19 @@ class AppModule {
     ): TestDep {
         return TestDep(a, b, c)
     }
+}
+
+@Module
+interface AppBindsModule {
+    @Binds
+    @[IntoMap ViewModelKey(MainViewModel::class)]
+    fun provideMainViewModel(mainViewModel: MainViewModel): ViewModel
+
+    @Binds
+    @[IntoMap ViewModelKey(ListViewModel::class)]
+    fun provideListViewModel(listViewModel: ListViewModel): ViewModel
+
+    @Binds
+    @[IntoMap ViewModelKey(DetailsViewModel::class)]
+    fun provideDetailsViewModel(detailsViewModel: DetailsViewModel): ViewModel
 }

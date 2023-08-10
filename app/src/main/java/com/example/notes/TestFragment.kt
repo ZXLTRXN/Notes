@@ -6,20 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.example.notes.di.appComponent
-import com.example.notes.di.testing.TestViewModel
-import com.example.notes.di.testing.TestViewModelFactory
+import com.example.notes.di.testing.MainViewModel
+import com.example.notes.di.testing.MultiViewModelFactory
 import javax.inject.Inject
 
 class TestFragment : Fragment() {
 
     // для этой factory lazy и provider неприменимы, поскольку AssistedInject это не поддерживает
     @Inject
-    lateinit var factory: TestViewModelFactory.Factory
+    lateinit var factory: MultiViewModelFactory
 
-    private val viewModel: TestViewModel by viewModels {
-        factory.create(123L)
+    private val viewModel: MainViewModel by lazy {
+        factory.create(MainViewModel::class.java)
     }
 
     override fun onAttach(context: Context) {
