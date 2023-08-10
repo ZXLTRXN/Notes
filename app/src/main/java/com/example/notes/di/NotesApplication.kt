@@ -14,7 +14,7 @@ class NotesApplication : Application() {
             .build()
     }
 
-    private inner class AppDepsImpl: AppDeps {
+    private inner class AppDepsImpl : AppDeps {
         override val context: Context = this@NotesApplication
     }
 }

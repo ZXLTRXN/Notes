@@ -15,7 +15,8 @@ import javax.inject.Inject
 class TestFragment : Fragment() {
 
     // для этой factory lazy и provider неприменимы, поскольку AssistedInject это не поддерживает
-    @Inject lateinit var factory: TestViewModelFactory.Factory
+    @Inject
+    lateinit var factory: TestViewModelFactory.Factory
 
     private val viewModel: TestViewModel by viewModels {
         factory.create(123L)

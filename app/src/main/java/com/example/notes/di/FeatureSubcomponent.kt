@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Subcomponent
 import javax.inject.Scope
 
-// Subcomponent очень плохи для модульных проектов, поскольку все сабкопоненты вкладываются в 1
+// Subcomponent очень плохи для модульных проектов, поскольку все subcomponents вкладываются в 1
 // главный DaggerAppComponent и жестко связаны с ним.
 // Таким же образом работает hilt, поэтому он тоже для многомодульных проектов плох
 @Feature
