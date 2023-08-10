@@ -34,8 +34,6 @@ annotation class AppScope // кастомный скоуп, контролиру
 interface AppComponent: FeatureDeps {
     override fun context(): Context
 
-    val testDep: TestDep // указание тут нужно лишь для тех, что используют provides
-
     fun inject(activity: MainActivity)
     fun inject(fragment: TestFragment)
 
