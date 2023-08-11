@@ -46,6 +46,9 @@ dependencies {
     implementation(libs.bundles.coroutines)
     implementation(libs.bundles.navigation)
 
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
+
     implementation(project(":core:common"))
     implementation(project(":core:ui"))
     implementation(project(":core:navigation"))
