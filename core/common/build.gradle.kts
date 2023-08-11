@@ -37,6 +37,10 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
 
+    implementation(libs.bundles.lifecycle)
+    implementation(libs.bundles.coroutines)
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.bundles.android.test)
 }
