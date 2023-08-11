@@ -1,4 +1,4 @@
-package com.example.core.commom
+package com.example.core.common
 
 import org.junit.Test
 

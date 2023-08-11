@@ -1,5 +1,5 @@
 @file:Suppress("unused")
-package com.example.core.commom
+package com.example.core.common
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
