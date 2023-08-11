@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.bundles.lifecycle)
     implementation(libs.bundles.coroutines)
 
+    implementation(libs.dagger)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.bundles.android.test)

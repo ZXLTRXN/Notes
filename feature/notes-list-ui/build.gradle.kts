@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -40,9 +41,14 @@ dependencies {
     implementation(libs.android.core)
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(libs.constraint)
+    implementation(libs.fragment)
 
     implementation(libs.bundles.lifecycle)
     implementation(libs.bundles.coroutines)
+
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
 
     implementation(project(":core:common"))
     implementation(project(":core:ui"))

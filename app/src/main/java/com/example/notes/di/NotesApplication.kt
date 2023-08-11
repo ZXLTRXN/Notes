@@ -2,6 +2,7 @@ package com.example.notes.di
 
 import android.app.Application
 import android.content.Context
+import com.example.feature.notes_list_ui.di.NotesListDepsStore
 
 class NotesApplication : Application() {
     lateinit var appComponent: AppComponent
@@ -11,6 +12,11 @@ class NotesApplication : Application() {
         appComponent = DaggerAppComponent.builder()
             .appDeps(AppDepsImpl())
             .build()
+        setDeps()
+    }
+
+    private fun setDeps() {
+        NotesListDepsStore.deps = appComponent
     }
 
     private inner class AppDepsImpl : AppDeps {
