@@ -6,3 +6,13 @@ plugins {
     alias(libs.plugins.kapt) apply false
     alias(libs.plugins.parcelize) apply false
 }
+
+allprojects {
+    if(this.name.equals("feature")) {
+        subprojects {
+            apply {
+                plugin("kotlin-kapt")
+            }
+        }
+    }
+}

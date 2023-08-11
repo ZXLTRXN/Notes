@@ -46,6 +46,9 @@ androidx_junit = { module = "androidx.test.ext:junit", version.ref = "androidx_j
 espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
 
 [bundles]
+feature_ui_base_deps = ["android.core", "appcompat", "material", "constraint", "fragment", "dagger",
+    "lifecycle.runtime", "lifecycle.viewmodel", # lifecycle
+    "coroutines.core", "coroutines.android"] # coroutines
 coroutines = ["coroutines.core", "coroutines.android"]
 navigation = ["navigation.fragment", "navigation.ui", "navigation.features.fragment"]
 lifecycle = ["lifecycle.runtime", "lifecycle.viewmodel"]
