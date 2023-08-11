@@ -53,6 +53,8 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:navigation"))
 
+    implementation(project(":feature:notes-list-ui"))
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.bundles.android.test)
 }

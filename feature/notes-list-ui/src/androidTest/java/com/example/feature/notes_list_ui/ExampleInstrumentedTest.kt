@@ -1,4 +1,4 @@
-package com.example.feature.notes_list
+package com.example.feature.notes_list_ui
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.example.feature.notes_list
+package com.example.feature.notes_list_ui
 
 import org.junit.Test
 
