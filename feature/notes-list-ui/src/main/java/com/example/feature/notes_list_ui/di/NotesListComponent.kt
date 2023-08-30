@@ -3,6 +3,7 @@ package com.example.feature.notes_list_ui.di
 import androidx.annotation.RestrictTo
 import androidx.lifecycle.ViewModel
 import com.example.core.common.Feature
+import com.example.core.common.MultiViewModelDependency
 import com.example.feature.notes_list_ui.GetAllNotesUseCase
 import com.example.feature.notes_list_ui.presentation.NotesListFragment
 import dagger.Component
@@ -10,7 +11,6 @@ import kotlin.properties.Delegates.notNull
 
 @[Feature Component(modules = [NotesListModule::class], dependencies = [NotesListDeps::class])]
 internal interface NotesListComponent {
-
     fun inject(fragment: NotesListFragment)
 
     @Component.Builder
@@ -20,7 +20,7 @@ internal interface NotesListComponent {
     }
 }
 
-interface NotesListDeps {
+interface NotesListDeps : MultiViewModelDependency {
     val getAllNotesUseCase: GetAllNotesUseCase
 }
 

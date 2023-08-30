@@ -1,4 +1,4 @@
-package com.example.notes.di
+package com.example.core.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
