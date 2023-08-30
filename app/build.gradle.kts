@@ -52,8 +52,7 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:ui"))
     implementation(project(":core:navigation"))
-
-    implementation(project(":feature:notes-list-ui"))
+    implementation(project(":feature:notes-list"))
 
     implementation(project(":api:notes"))
 

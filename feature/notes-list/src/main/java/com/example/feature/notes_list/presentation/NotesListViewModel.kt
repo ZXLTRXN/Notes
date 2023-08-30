@@ -1,4 +1,4 @@
-package com.example.feature.notes_list_ui.presentation
+package com.example.feature.notes_list.presentation
 
 import androidx.lifecycle.ViewModel
 import com.example.api.notes.GetAllNotesUseCase

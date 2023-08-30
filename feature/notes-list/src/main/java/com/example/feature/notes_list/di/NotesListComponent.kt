@@ -1,11 +1,11 @@
-package com.example.feature.notes_list_ui.di
+package com.example.feature.notes_list.di
 
 import androidx.annotation.RestrictTo
 import androidx.lifecycle.ViewModel
 import com.example.core.common.Feature
 import com.example.core.common.MultiViewModelDependency
 import com.example.api.notes.GetAllNotesUseCase
-import com.example.feature.notes_list_ui.presentation.NotesListFragment
+import com.example.feature.notes_list.presentation.NotesListFragment
 import dagger.Component
 import kotlin.properties.Delegates.notNull
 

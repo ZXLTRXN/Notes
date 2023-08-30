@@ -11,7 +11,7 @@
 
     <fragment
         android:id="@+id/NotesListFragment"
-        android:name="com.example.feature.notes_list_ui.presentation.NotesListFragment"
+        android:name="com.example.feature.notes_list.presentation.NotesListFragment"
         android:label="TestFragment"
         tools:layout="@layout/fragment_notes_list">
 

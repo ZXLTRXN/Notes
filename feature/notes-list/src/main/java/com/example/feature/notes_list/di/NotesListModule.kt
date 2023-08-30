@@ -1,4 +1,4 @@
-package com.example.feature.notes_list_ui.di
+package com.example.feature.notes_list.di
 
 import dagger.Module
 

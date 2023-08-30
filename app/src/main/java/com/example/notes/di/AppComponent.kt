@@ -3,7 +3,7 @@ package com.example.notes.di
 import android.app.Application
 import com.example.api.notes.GetAllNotesUseCase
 import com.example.core.common.MultiViewModelFactory
-import com.example.feature.notes_list_ui.di.NotesListDeps
+import com.example.feature.notes_list.di.NotesListDeps
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module

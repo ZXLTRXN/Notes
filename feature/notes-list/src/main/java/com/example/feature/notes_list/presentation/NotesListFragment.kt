@@ -1,4 +1,4 @@
-package com.example.feature.notes_list_ui.presentation
+package com.example.feature.notes_list.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -10,9 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.core.common.MultiViewModelFactory
+import com.example.feature.notes_list.di.NotesListComponentViewModel
 import com.example.feature.notes_list_ui.R
 import com.example.feature.notes_list_ui.databinding.FragmentNotesListBinding
-import com.example.feature.notes_list_ui.di.NotesListComponentViewModel
 import dagger.Lazy
 import javax.inject.Inject
 

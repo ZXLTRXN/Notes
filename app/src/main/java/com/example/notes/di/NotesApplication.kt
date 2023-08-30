@@ -2,7 +2,7 @@ package com.example.notes.di
 
 import android.app.Application
 import android.content.Context
-import com.example.feature.notes_list_ui.di.NotesListDepsStore
+import com.example.feature.notes_list.di.NotesListDepsStore
 
 class NotesApplication : Application() {
     lateinit var appComponent: AppComponent
