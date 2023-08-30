@@ -4,7 +4,7 @@ import androidx.annotation.RestrictTo
 import androidx.lifecycle.ViewModel
 import com.example.core.common.Feature
 import com.example.core.common.MultiViewModelDependency
-import com.example.feature.notes_list_ui.GetAllNotesUseCase
+import com.example.api.notes.GetAllNotesUseCase
 import com.example.feature.notes_list_ui.presentation.NotesListFragment
 import dagger.Component
 import kotlin.properties.Delegates.notNull

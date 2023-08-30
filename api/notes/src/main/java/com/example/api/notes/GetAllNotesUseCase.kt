@@ -1,4 +1,4 @@
-package com.example.feature.notes_list_ui
+package com.example.api.notes
 
 interface GetAllNotesUseCase {
     fun get(): String

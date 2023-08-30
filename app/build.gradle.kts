@@ -55,6 +55,8 @@ dependencies {
 
     implementation(project(":feature:notes-list-ui"))
 
+    implementation(project(":api:notes"))
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.bundles.android.test)
 }

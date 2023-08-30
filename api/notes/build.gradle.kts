@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.feature.notes_list_ui"
+    namespace = "com.example.api.notes"
     compileSdk = 33
 
     defaultConfig {
@@ -41,10 +41,6 @@ dependencies {
     kapt(libs.dagger.compiler)
 
     implementation(project(":core:common"))
-    implementation(project(":core:ui"))
-    implementation(project(":core:navigation"))
-
-    implementation(project(":api:notes"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.bundles.android.test)

@@ -8,7 +8,7 @@ plugins {
 }
 
 allprojects {
-    if(this.name.equals("feature")) {
+    if(name.equals("feature") || name.equals("api")) {
         subprojects {
             apply {
                 plugin("kotlin-kapt")

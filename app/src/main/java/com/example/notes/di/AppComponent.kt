@@ -1,18 +1,12 @@
 package com.example.notes.di
 
 import android.app.Application
-import androidx.lifecycle.ViewModel
+import com.example.api.notes.GetAllNotesUseCase
 import com.example.core.common.MultiViewModelFactory
-import com.example.core.common.ViewModelKey
-import com.example.feature.notes_list_ui.GetAllNotesUseCase
 import com.example.feature.notes_list_ui.di.NotesListDeps
-import com.example.feature.notes_list_ui.presentation.NotesListViewModel
-import com.example.notes.GetAllNotesUseCaseImpl
-import dagger.Binds
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
-import dagger.multibindings.IntoMap
 import javax.inject.Scope
 
 @Scope
@@ -20,7 +14,7 @@ import javax.inject.Scope
 annotation class AppScope
 
 @[AppScope Component(modules = [AppModule::class])]
-interface AppComponent: NotesListDeps {
+interface AppComponent : NotesListDeps {
 
     override val getAllNotesUseCase: GetAllNotesUseCase
     override val multiViewModelFactory: MultiViewModelFactory
@@ -33,18 +27,8 @@ interface AppComponent: NotesListDeps {
     }
 }
 
-@Module(includes = [AppBindsModule::class, ViewModelsModule::class])
+@Module(includes = [AppBindsModule::class, ViewModelsModule::class, UseCasesModule::class])
 class AppModule
 
 @Module
-interface AppBindsModule {
-    @Binds
-    fun bindsUseCase(getAllNotesUseCaseImpl: GetAllNotesUseCaseImpl): GetAllNotesUseCase
-}
-
-@Module
-interface ViewModelsModule {
-    @Binds
-    @[IntoMap ViewModelKey(NotesListViewModel::class)]
-    fun provideNotesListViewModel(notesListViewModel: NotesListViewModel): ViewModel
-}
+interface AppBindsModule
