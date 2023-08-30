@@ -36,7 +36,8 @@ android {
 }
 
 dependencies {
-    implementation(libs.bundles.feature.ui.base.deps)
+    implementation(libs.bundles.coroutines)
+    implementation(libs.dagger)
 
     kapt(libs.dagger.compiler)
 
