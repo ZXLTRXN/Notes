@@ -1,5 +1,6 @@
 package com.example.notes.di
 
+import android.app.Application
 import androidx.lifecycle.ViewModel
 import com.example.core.common.MultiViewModelFactory
 import com.example.core.common.ViewModelKey
@@ -8,6 +9,7 @@ import com.example.feature.notes_list_ui.di.NotesListDeps
 import com.example.feature.notes_list_ui.presentation.NotesListViewModel
 import com.example.notes.GetAllNotesUseCaseImpl
 import dagger.Binds
+import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -17,7 +19,7 @@ import javax.inject.Scope
 @Retention(AnnotationRetention.RUNTIME)
 annotation class AppScope
 
-@[AppScope Component(modules = [AppModule::class], dependencies = [AppDeps::class])]
+@[AppScope Component(modules = [AppModule::class])]
 interface AppComponent: NotesListDeps {
 
     override val getAllNotesUseCase: GetAllNotesUseCase
@@ -25,7 +27,8 @@ interface AppComponent: NotesListDeps {
 
     @Component.Builder
     interface Builder {
-        fun appDeps(deps: AppDeps): Builder
+        @BindsInstance
+        fun application(app: Application): Builder
         fun build(): AppComponent
     }
 }
@@ -39,6 +42,7 @@ interface AppBindsModule {
     fun bindsUseCase(getAllNotesUseCaseImpl: GetAllNotesUseCaseImpl): GetAllNotesUseCase
 }
 
+@Module
 interface ViewModelsModule {
     @Binds
     @[IntoMap ViewModelKey(NotesListViewModel::class)]

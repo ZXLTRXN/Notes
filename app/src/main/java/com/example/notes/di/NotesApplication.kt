@@ -10,7 +10,7 @@ class NotesApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         appComponent = DaggerAppComponent.builder()
-            .appDeps(AppDepsImpl())
+            .application(this)
             .build()
         setDeps()
     }
@@ -18,14 +18,6 @@ class NotesApplication : Application() {
     private fun setDeps() {
         NotesListDepsStore.deps = appComponent
     }
-
-    private inner class AppDepsImpl : AppDeps {
-        override val context: Context = this@NotesApplication
-    }
-}
-
-interface AppDeps {
-    val context: Context
 }
 
 val Context.appComponent: AppComponent
