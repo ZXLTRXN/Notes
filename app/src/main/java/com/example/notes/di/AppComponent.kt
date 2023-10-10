@@ -1,6 +1,7 @@
 package com.example.notes.di
 
 import android.app.Application
+import com.example.api.notes.di.ApiNotesModule
 import com.example.api.notes.domain.GetAllNotesUseCase
 import com.example.core.common.MultiViewModelFactory
 import com.example.feature.notes_list.di.NotesListDeps
@@ -27,7 +28,10 @@ interface AppComponent : NotesListDeps {
     }
 }
 
-@Module(includes = [AppBindsModule::class, ViewModelsModule::class, UseCasesModule::class])
+@Module(
+    includes = [AppBindsModule::class, ViewModelsModule::class, UseCasesModule::class,
+        ApiNotesModule::class]
+)
 class AppModule
 
 @Module

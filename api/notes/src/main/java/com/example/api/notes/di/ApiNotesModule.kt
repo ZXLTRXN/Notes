@@ -7,7 +7,7 @@ import dagger.Module
 
 
 @Module(includes = [ApiNotesBindsModule::class])
-internal class ApiNotesModule
+class ApiNotesModule
 
 @Module
 internal interface ApiNotesBindsModule {
