@@ -9,6 +9,10 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.async
+import kotlinx.coroutines.channels.ReceiveChannel
+import kotlinx.coroutines.channels.SendChannel
+import kotlinx.coroutines.channels.actor
+import kotlinx.coroutines.channels.produce
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -18,8 +22,8 @@ import kotlinx.coroutines.withContext
 
 class NotesListViewModel @Inject constructor(
     private val getAllNotes: GetAllNotesUseCase
-) :
-    ViewModel() {
+) : ViewModel() {
+
     fun test() {
         runBlocking {
 
@@ -45,12 +49,12 @@ class NotesListViewModel @Inject constructor(
 
     // пример обработки исключений
     fun tryCatchTest() {
-
         defaultLaunch()
         defaultAsync()
         catchEntireScope()
         finally()
-
+        defaultActor()
+        defaultProduce()
     }
 
     private fun defaultLaunch() {
@@ -131,8 +135,39 @@ class NotesListViewModel @Inject constructor(
                 // корутина может быть отменена и при вызове suspend функции
                 // произойдет остановка выполнения корутины, для избежания этого используем
                 withContext(NonCancellable) {
-                    Log.i("TAG", "finally: ")
+                    println("finally")
                 }
+            }
+        }
+    }
+
+    // используется для генерации бесконечных потоков значений
+    private fun defaultProduce() {
+        runBlocking {
+            val channel: ReceiveChannel<Int> = produce {
+                var x = 1
+                while (true) {
+                    send(x++)
+                }
+            }
+
+            launch {
+                val data = channel.receive()
+                println("$data received from produce")
+            }
+        }
+    }
+
+    // используется для упорядоченной обработки значений извне
+    private fun defaultActor() {
+        runBlocking {
+            val channel: SendChannel<Int> = actor {
+                val data = receive()
+                println("$data received in actor")
+            }
+
+            launch {
+                channel.send(4)
             }
         }
     }
