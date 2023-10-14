@@ -53,13 +53,16 @@ class NotesListViewModel @Inject constructor(
         defaultAsync()
         catchEntireScope()
         finally()
+    }
+
+    fun testChannels() {
         defaultActor()
         defaultProduce()
     }
 
     private fun defaultLaunch() {
         runBlocking {
-            // аналогично обрабатывается actor coroutine builder
+            // аналогично обрабатывается actor coroutine builder и flow
             launch() {
                 try {
                     throwing("launch")
