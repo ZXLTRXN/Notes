@@ -9,6 +9,8 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+
+
 fun differentContextsViaChannelFlowKco11(scope: CoroutineScope) {
     // такой подход (channelFlow) позволяет делать продюсер и консюмер в разных контекстах, либо используй flowOn
     val flowOfStrings = channelFlow<String> {
@@ -26,7 +28,7 @@ fun differentContextsViaChannelFlowKco11(scope: CoroutineScope) {
     }
 }
 
-fun defaultKco11(scope: CoroutineScope) {
+fun defaultFlowKco11(scope: CoroutineScope) {
     val flowOfStrings = flow {
         emit("")
 
@@ -36,7 +38,7 @@ fun defaultKco11(scope: CoroutineScope) {
         }
     }
 
-    scope.launch() {
+    scope.launch {
         flowOfStrings
             .flowOn(Dispatchers.Default)
             .map { "$it, mapped on ${Thread.currentThread().name}" }
