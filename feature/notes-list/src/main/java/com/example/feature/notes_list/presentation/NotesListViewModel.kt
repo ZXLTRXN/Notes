@@ -2,6 +2,7 @@ package com.example.feature.notes_list.presentation
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.api.notes.domain.GetAllNotesUseCase
 import javax.inject.Inject
 import kotlin.random.Random
@@ -58,6 +59,10 @@ class NotesListViewModel @Inject constructor(
     fun testChannels() {
         defaultActor()
         defaultProduce()
+    }
+
+    fun runKco(){
+        differentContextsViaChannelFlowKco11(viewModelScope)
     }
 
     private fun defaultLaunch() {
